@@ -14,11 +14,11 @@ class Webservices{
     
     static let shared = Webservices()
     
-    let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=3350c4fd010e48948c2e9a5ae8793332")!
+   
     func getData(completion: @escaping ([Articles]?) -> ()){
         
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: Constants.url) { data, response, error in
             
             if let error = error {
                 print(error.localizedDescription)
@@ -31,8 +31,6 @@ class Webservices{
                 if let articles = articleLst {
                     completion(articles.articles )
                 }
-                
-                
             }
             
             
